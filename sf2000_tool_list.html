@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // -------------------------------------------------------------------------------------------------------
+    var tool_as_date = "2025.01";
+    var tools = [
+      {name: "tadpole", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "●", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*１", descript: "*１ … multicore 0.10 install, theme install, edit 4 shortcuts, etc", des2: ""},
+      {name: "madpole", 
+win: "●", mac: "&nbsp;py *", cmd: "", gui: "●", list: "●", order: "", zxx: "●", arcad: "●", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*２", descript: "*２ … multicore 0.10 install, theme install, edit 4 shortcuts, core changer, opt editor, boot logo changer (old bios), etc", des2: "py * … some functions only work on Windows"},
+      {name: "v2 tool<br>(GB300+SF2000 Tool)", 
+win: "●", mac: "wine", cmd: "", gui: "●", list: "●", order: "●", zxx: "●", arcad: "●", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "●", ngf: "●", other: "*３", descript: "*３ … boot logo changer, various auto fix, WQW extraction, game list hiding, thumbnail extraction, core changner, opt editor, Key / UI editor, etc (equipped with so many functions that it is impossible to list them)", des2: ""},
+      {name: "MRH", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*４", descript: "*４ … automatic detect SD card drive (working directory)", des2: ""},
+      {name: "ZFBimagesTool<br>Sparda", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "", zfb: "●", stub: "", menu7: "", menu12: "", anyfol: "", ngf: "", other: "<font color='red'>*５</font>", descript: "*５ … compatible with <font color='red'>Hyper Screen</font> (Hyper wheel menu, etc)", des2: ""},
+      {name: "ZFBimagesTool<br>Sparda ARCADE", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "●", zfb: "", stub: "", menu7: "", menu12: "", anyfol: "", ngf: "", other: "<font color='red'>*５</font>", descript: "", des2: ""},
+      {name: "frogtool", 
+win: "●", mac: "py", cmd: "●", gui: "", list: "", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "", descript: "", des2: ""},
+      {name: "frogtool GUI<br>(2 Type … 7/12 menus)", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "●", anyfol: "●", ngf: "", other: "", descript: "", des2: ""},
+      {name: "Qs_tool<br>(*frogtool extend)", 
+win: "●", mac: "", cmd: "●", gui: "", list: "", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "●", anyfol: "●", ngf: "", other: "*６", descript: "*６ … automatic recognition (switching) of 7 menus (Foldername.ini) / 12 menus (FoldernamX.ini), auto detect SD card drive (or parent directory of Resources folder)", des2: ""},
+      {name: "make-romlist", 
+win: "●", mac: "", cmd: "", gui: "", list: "", order: "", zxx: "", arcad: "", zfb: "", stub: "●", menu7: "", menu12: "", anyfol: "", ngf: "", other: "", descript: "", des2: ""},
+    ];
+    // -------------------------------------------------------------------------------------------------------
+
+    function mklist(){
+       var list = document.getElementById("tool_list");
+       var row = null;
+       var cel = null;
+       var des = "";
+       var des2 = "";
+       for (var i = 0; i < tools.length; i++){
+           row = document.createElement("tr");
+           for (var key in tools[i]) {
+               if (key == "descript" || key == "des2") continue;
+               cel = document.createElement("td");
+               if (!tools[i][key]) cel.className = "none";
+               if (key != "name" && tools[i][key] && tools[i][key].indexOf("●") < 0) cel.className = "rfont";
+               if (tools[i][key].indexOf("*") >= 0) cel.className = "sfont";
+               tools[i][key] = tools[i][key].replace("<br>(", "<br><small>(");
+               cel.innerHTML = tools[i][key];
+               row.appendChild(cel);
+           }
+           list.appendChild(row);
+           if (tools[i].descript) {
+             tools[i].descript = tools[i].descript.split(" … ");
+             tools[i].descript = tools[i].descript[0].small() + " … " + tools[i].descript[1];
+             des  += (tools[i].descript + "<br>");
+           }
+           if (tools[i].des2) {
+             tools[i].des2 = tools[i].des2.split(" … ");
+             tools[i].des2 = tools[i].des2[0].small() + " … " + tools[i].des2[1];
+             des2  += (tools[i].des2 + "<br>");
+           }
+       }
+       var asdate = document.getElementsByClassName("as_date")[0];
+       asdate.innerHTML = "*As of " + tool_as_date;
+       asdate = null;
+       var desc = document.getElementById("descript");
+       desc.innerHTML = des2 + des;
+       desc = null;
+       cel = null;
+       row = null;
+       list = null;
+    }
+    window.addEventListener("DOMContentLoaded", mklist);
+  </script>
+  <style>
+    #tool_list, #tool_list th, #tool_list td {
+      border-collapse: collapse;
+      border: 1px solid #000;
+      padding: 6px;
+    }
+    #tool_list tr:first-child th:first-child {
+      width: 120px;
+    }
+    #tool_list th {
+      background-color: #daeef3;
+      width: 50px;
+    }
+    #tool_list th:not(:nth-child(2))[colspan] {
+      font-size: 93%;
+      white-space: nowrap;
+    }
+    #tool_list td {
+      height: 40px;
+      padding: 2px 8px;
+    }
+    #tool_list td:first-child {
+      background-color: #ffff99;
+    }
+    #tool_list td.none {
+      background-color: #bbb;
+    }
+    #tool_list td:not(:first-child) {
+      font-size: 180%;
+      text-align: center;
+    }
+    #tool_list tr:nth-child(2) th {
+      font-size: 88%;
+      padding: 2px;
+      white-space: nowrap;
+      width: 60px;
+    }
+    #tool_list {
+      td:nth-child(6), td:nth-child(10), td:nth-child(13), td:nth-child(15) {
+        color: red;
+      }
+    }
+    #tool_list {
+      td:nth-child(7), td:nth-child(14) {
+        color: orange;
+      }
+    }
+    #tool_list td:nth-child(12) {
+      border-right-width: 2px;
+      border-right-color: red;
+    }
+    #tool_list td:nth-child(13) {
+      border-right-width: 2px;
+      border-color: red;
+    }
+    #tool_list tr:nth-child(2) th:nth-child(7) {
+      border-right-color: red;
+      border-right-width: 2px;
+    }
+    #tool_list tr:nth-child(2) th:nth-child(8) {
+      border-right-width: 2px;
+      border-color: red;
+      color: red;
+    }
+    #descript {
+      margin-top: 5px;
+      font-size: 90%;
+    }
+    .sfont {
+      font-size: initial !important;
+    }
+    .rfont {
+      font-size: 110% !important;
+    }
+    .title {
+      white-space: nowrap;
+      font-size: 120%;
+    }
+    .as_date {
+      font-size: 90%;
+      text-align: right;
+      white-space: nowrap;
+    }
+    table{
+      width: 100%;
+    }
+    body {
+      font-family: 'Bahnschrift SemiCondensed', 'Bahnschrift SemiLight SemiConde', 'Arial Narrow', 'HGGothicE', 'Arial';
+      padding: 12px;
+    }
+  </style>
+ </head>
+ <body>
+  <table>
+    <tr>
+      <td class="title">SF2000 Tools List</td>
+      <td align="right" width="75%"><a href="">Download</a></td>
+      <td class="as_date"></td>
+    </tr>
+    <tr>
+     <td colspan="3">
+
+  <table id="tool_list">
+    <tr>
+      <th rowspan="2">
+      </th>
+      <th colspan="2">
+        Runtype
+      </th>
+      <th rowspan="2">
+        cmd line
+      </th>
+      <th rowspan="2">
+        GUI
+      </th>
+      <th rowspan="2">
+        GUI list
+      </th>
+      <th rowspan="2">
+        custom reorder list
+      </th>
+      <th colspan="2">
+        generate for stock core
+      </th>
+      <th colspan="2">
+        generate for multicore
+      </th>
+      <th colspan="3">
+        rebuild game list
+      </th>
+      <th rowspan="2">
+        arcade extended (NeoGeo faker)
+      </th>
+      <th rowspan="2">
+        other features
+      </th>
+    </tr>
+    <tr>
+      <th>
+        Windows<br/>(EXE / bat)
+      </th>
+      <th>
+        Linux / Mac
+      </th>
+      <th>
+        zxx(WQW)
+      </th>
+      <th>
+        arcade(zfb)
+      </th>
+      <th>
+        zfb
+      </th>
+      <th>
+        stub<br/>(user roms)
+      </th>
+      <th>
+        7 menus
+      </th>
+      <th>
+        12 menus<br/>(*new)
+      </th>
+      <th>
+        any folders
+      </th>
+    </tr>
+  </table>
+  <div id="descript"></div>
+
+      </td>
+    </tr>
+  </table>
+ </body>
+</html>
