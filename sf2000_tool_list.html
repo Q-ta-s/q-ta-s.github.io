@@ -5,28 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     // -------------------------------------------------------------------------------------------------------
-    var tool_as_date = "2025.01";
+    var tool_as_date = "2025.02";
     var tools = [
-      {name: "tadpole", 
-win: "●", mac: "py", cmd: "", gui: "●", list: "●", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*１", descript: "*１ … multicore 0.10 install, theme install, edit 4 shortcuts, etc", des2: ""},
-      {name: "madpole", 
-win: "●", mac: "&nbsp;py *", cmd: "", gui: "●", list: "●", order: "", zxx: "●", arcad: "●", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*２", descript: "*２ … multicore 0.10 install, theme install, edit 4 shortcuts, core changer, opt editor, boot logo changer (old bios), etc", des2: "py * … some functions only work on Windows"},
-      {name: "v2 tool<br>(GB300+SF2000 Tool)", 
-win: "●", mac: "wine", cmd: "", gui: "●", list: "●", order: "●", zxx: "●", arcad: "●", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "●", ngf: "●", other: "*３", descript: "*３ … boot logo changer, various auto fix, WQW extraction, game list hiding, thumbnail extraction, core changner, opt editor, Key / UI editor, etc (equipped with so many functions that it is impossible to list them)", des2: ""},
-      {name: "MRH", 
-win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*４", descript: "*４ … automatic detect SD card drive (working directory)", des2: ""},
-      {name: "ZFBimagesTool<br>Sparda", 
-win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "", zfb: "●", stub: "", menu7: "", menu12: "", anyfol: "", ngf: "", other: "<font color='red'>*５</font>", descript: "*５ … compatible with <font color='red'>Hyper Screen</font> (Hyper wheel menu, etc)", des2: ""},
-      {name: "ZFBimagesTool<br>Sparda ARCADE", 
-win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "●", zfb: "", stub: "", menu7: "", menu12: "", anyfol: "", ngf: "", other: "<font color='red'>*５</font>", descript: "", des2: ""},
-      {name: "frogtool", 
+      {name: "frogtool", url: "https://github.com/tzlion/frogtool/releases", 
 win: "●", mac: "py", cmd: "●", gui: "", list: "", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "", descript: "", des2: ""},
-      {name: "frogtool GUI<br>(2 Type … 7/12 menus)", 
+      {name: "frogtool GUI<br>(7/12 menus)", url: "https://discord.com/channels/741895796315914271/1099465777825972347/1333127246357200986", 
 win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "●", anyfol: "●", ngf: "", other: "", descript: "", des2: ""},
-      {name: "Qs_tool<br>(*frogtool extend)", 
-win: "●", mac: "", cmd: "●", gui: "", list: "", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "●", anyfol: "●", ngf: "", other: "*６", descript: "*６ … automatic recognition (switching) of 7 menus (Foldername.ini) / 12 menus (FoldernamX.ini), auto detect SD card drive (or parent directory of Resources folder)", des2: ""},
-      {name: "make-romlist", 
+      {name: "Qs_tool<br>(*frogtool extend)", url: "https://discord.com/channels/741895796315914271/1110397766074638397/1320761816447717456", 
+win: "●", mac: "", cmd: "●", gui: "", list: "", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "●", anyfol: "●", ngf: "", other: "*１", descript: "*１ … automatic recognition (switching) of 7 menus (Foldername.ini) / 12 menus (FoldernamX.ini), auto detect SD card drive (or parent directory of Resources folder)", des2: ""},
+      {name: "tadpole", url: "https://github.com/EricGoldsteinNz/tadpole/releases", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "●", order: "", zxx: "●", arcad: "●", zfb: "", stub: "", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*２", descript: "*２ … multicore 0.10 install, theme install, edit 4 shortcuts, etc", des2: ""},
+      {name: "madpole", url: "https://github.com/fjdogar/madpole/releases", 
+win: "●", mac: "<font size='+1'>&nbsp;py *</font>", cmd: "", gui: "●", list: "●", order: "", zxx: "●", arcad: "●", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*３", descript: "*３ … multicore 0.10 install, theme install, edit 4 shortcuts, core changer, opt editor, boot logo changer (old bios), etc", des2: "py * … some functions only work on Windows"},
+      {name: "v2 tool<br>(GB300+SF2000 Tool)", url: "https://github.com/nummacway/gb300-sf2000-tool/releases", 
+win: "●", mac: "wine", cmd: "", gui: "●", list: "●", order: "●", zxx: "●", arcad: "●", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "●", ngf: "●", other: "*４", descript: "*４ … boot logo changer, various auto fix, WQW extraction, game list hiding, thumbnail extraction, core changner, opt editor, Key / UI editor, etc (equipped with so many functions that it is impossible to list them)", des2: ""},
+      {name: "make-romlist", url: "https://github.com/madcock/sf2000_multicore_cores/releases", 
 win: "●", mac: "", cmd: "", gui: "", list: "", order: "", zxx: "", arcad: "", zfb: "", stub: "●", menu7: "", menu12: "", anyfol: "", ngf: "", other: "", descript: "", des2: ""},
+      {name: "ZFBimagesTool<br>Sparda", url: "https://discord.com/channels/741895796315914271/1099465777825972347/1325602740851838976", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "", zfb: "●", stub: "", menu7: "", menu12: "", anyfol: "", ngf: "", other: "<font color='red'>*５</font>", descript: "*５ … compatible with <font color='red'>Hyper Screen</font> (Hyper wheel menu, Hyper cube menu, etc)", des2: ""},
+      {name: "ZFBimagesTool<br>Sparda ARCADE", url: "https://discord.com/channels/741895796315914271/1099465777825972347/1325602740851838976", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "●", zfb: "", stub: "", menu7: "", menu12: "", anyfol: "", ngf: "", other: "<font color='red'>*５</font>", descript: "", des2: ""},
+      {name: "MRH", url: "https://github.com/fjdogar/multicore_rom_helper/releases", 
+win: "●", mac: "py", cmd: "", gui: "●", list: "", order: "", zxx: "", arcad: "", zfb: "●", stub: "●", menu7: "●", menu12: "", anyfol: "", ngf: "", other: "*６", descript: "*６ … automatic detect SD card drive (working directory)", des2: ""},
     ];
     // -------------------------------------------------------------------------------------------------------
 
@@ -39,12 +39,14 @@ win: "●", mac: "", cmd: "", gui: "", list: "", order: "", zxx: "", arcad: "", 
        for (var i = 0; i < tools.length; i++){
            row = document.createElement("tr");
            for (var key in tools[i]) {
-               if (key == "descript" || key == "des2") continue;
+               if (key == "url" || key == "descript" || key == "des2") continue;
                cel = document.createElement("td");
                if (!tools[i][key]) cel.className = "none";
+               if (key == "name" && tools[i].url != "") tools[i][key] = "<a href='" + tools[i].url + "' target='_blank'>" +  tools[i][key] + "</a>";
                if (key != "name" && tools[i][key] && tools[i][key].indexOf("●") < 0) cel.className = "rfont";
                if (tools[i][key].indexOf("*") >= 0) cel.className = "sfont";
                tools[i][key] = tools[i][key].replace("<br>(", "<br><small>(");
+               if (tools[i].name.indexOf("v2 tool") >= 0) cel.style.borderBottom = "3px double #000";
                cel.innerHTML = tools[i][key];
                row.appendChild(cel);
            }
@@ -155,8 +157,14 @@ win: "●", mac: "", cmd: "", gui: "", list: "", order: "", zxx: "", arcad: "", 
       text-align: right;
       white-space: nowrap;
     }
-    table{
+    table {
       width: 100%;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     body {
       font-family: 'Bahnschrift SemiCondensed', 'Bahnschrift SemiLight SemiConde', 'Arial Narrow', 'HGGothicE', 'Arial';
@@ -231,7 +239,7 @@ win: "●", mac: "", cmd: "", gui: "", list: "", order: "", zxx: "", arcad: "", 
       <th>
         7 menus
       </th>
-      <th>
+      <th style="border-top: 2px solid red;">
         12 menus<br/>(*new)
       </th>
       <th>
