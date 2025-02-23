@@ -4,58 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Q-ta-s [GB300 V2 Custom Bootlogo]</title>
+  <link href="css/style.css" rel="stylesheet" />
   <style>
-    html {font-size: 80%;}
     body {
-      font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans", "Noto Sans", "Yu Gothic UI", Meiryo, Arial, sans-serif;
-      text-align: center;
       font-size: clamp(1.3rem, 2.5vw, 1.5rem);
-      background-color: #fbfbfb;
-      position: relative;
-    }
-    a {
-      color: cornflowerblue;
-      text-decoration: none;
-      padding-bottom: -5px;
     }
     a:hover {
       border-bottom: 1px solid cornflowerblue;
-      padding-bottom: -5px;
-    }
-    .bl {
-      color: lightskyblue;
-    }
-    .title {
-      color: #888;
-      transform: scale(1.02, 1);
-      display: inline-block;
-      font-size: 150%;
-    }
-    .chars {
-      transform: rotate(0.003deg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      white-space: nowrap;
-      position: relative;
-      z-index: 2;
-    }
-    .under {
-      border: 4px solid #efefef;
-      top: -12px;
-      position: relative;
-      z-index: 1;
     }
     ul {
-      border: solid 2px #bbb;
-      border-radius: 10px;
-      padding: 0.5em 0.5em 0.5em 0.5em;
-      display: inline-block;
-      text-align: left;
       width: 80vw;
     }
     ul li {
-      list-style-type: none;
       color: gray;
     }
     ul li:before {
@@ -72,35 +32,7 @@
       vertical-align: bottom;
       width: clamp(30%, 40%, 45%);
     }
-    .msg {
-      font-size: 70%;
-      padding: 0em 0.5em;
-      white-space: pre-line;
-    }
-    .new-icon {
-            display: inline-block;
-            padding: 2px 3px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: #fff;
-            font-size: clamp(0.3rem, 0.5em, 0.6em);
-            font-weight: bold;
-            border-radius: 8px;
-            box-shadow: 0 2px 3px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-    }
     .container {
-      position: absolute;
-      left: 50%;
       transform: translate(-50%, 0%);
     }
   </style>
