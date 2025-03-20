@@ -112,7 +112,7 @@ summary::after{
     color: cornflowerblue;
     font-size: 70%;
     top: 20px;
-    right: clamp(8%, 18%, 38%);
+    right: clamp(8%, 16%, 38%);
     content: "detail \025bc";
 }
 
