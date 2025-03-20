@@ -131,7 +131,7 @@ summary:hover::after {
 
 details[open] summary::after{
     content: "detail \025b2";
-    color: gray;
+    /* color: gray; */
     top: 20px;
 }
 
