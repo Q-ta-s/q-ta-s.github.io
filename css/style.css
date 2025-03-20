@@ -111,7 +111,7 @@ summary::after{
     position: absolute;
     color: cornflowerblue;
     font-size: 70%;
-    top: 20px;
+    bottom: -14px;
     right: clamp(4%, 12%, 30%);
     content: "detail \025bc";
 }
@@ -123,6 +123,12 @@ summary:hover::after {
 
 details[open] summary::after{
     content: "detail \025b2";
+    color: gray;
+    top: 20px;
+}
+
+a:has(img):hover {
+  border-bottom: initial;
 }
 
 ::details-content {
