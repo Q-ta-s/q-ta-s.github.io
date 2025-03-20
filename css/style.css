@@ -93,7 +93,7 @@
 
 /*------------------------------------------*/
 .youtube {
-    width: clamp(30%, 40%, 45%);
+    width: clamp(50%, 60%, 70%);
     aspect-ratio: 16 / 9;
 }
 .youtube iframe {
