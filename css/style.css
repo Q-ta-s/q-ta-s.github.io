@@ -3,7 +3,8 @@
       font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN",
         "Hiragino Sans", "Noto Sans", "Yu Gothic UI", Meiryo, Arial, sans-serif;
       text-align: center;
-      background-color: #fbfbfb;
+      /* background-color: #fbfbfb; */
+      background-color: ghostwhite;
       position: relative;
     }
     a {
@@ -172,4 +173,12 @@ details hr {
         height: 150px;
         overflow-y: scroll; /* In case the contents should be taller than 150px */
     }
+}
+
+.highlight:target{
+    animation: highlight 3s;
+}
+@keyframes highlight {
+    0%   { background: lightsteelblue; }
+    100% { background: initial; }
 }
