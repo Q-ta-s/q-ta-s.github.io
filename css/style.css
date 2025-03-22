@@ -157,6 +157,10 @@ details hr {
     margin-right: auto;
 }
 
+.other details summary .msg, .other details summary::after, .other details::details-content {
+    font-size: 80%;
+}
+
 /* Browser supports interpolate-size */
 @supports (interpolate-size: allow-keywords) {
     :root {
@@ -179,6 +183,7 @@ details hr {
 .highlight:target{
     animation: highlight 3s;
 }
+
 @keyframes highlight {
     0%   { background: lightsteelblue; }
     100% { background: initial; }
