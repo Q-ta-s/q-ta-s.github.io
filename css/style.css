@@ -64,6 +64,20 @@
       padding: 0em 0.5em;
       white-space: pre-line;
     }
+    .mi {
+      position: relative;
+      padding: .2em 0em .2em .6em;
+      display: inline-block;
+    }
+    .mi:before {
+      position: absolute;
+      background-color: lightgray;
+      border-radius: 1em;
+      content: "";
+      left: 0%;
+      width: .2em;
+      height: 90%;
+    }
     .new-icon {
             display: inline-block;
             padding: 2px 3px;
@@ -93,14 +107,6 @@
     }
 
 /*------------------------------------------*/
-.youtube {
-    width: clamp(50%, 60%, 70%);
-    aspect-ratio: 16 / 9;
-}
-.youtube iframe {
-    width: 100%;
-    height: 100%;
-}
 
 details {
     position: relative;
@@ -178,6 +184,15 @@ details hr {
         height: 150px;
         overflow-y: scroll; /* In case the contents should be taller than 150px */
     }
+}
+
+.youtube {
+    width: clamp(50%, 60%, 70%);
+    aspect-ratio: 16 / 9;
+}
+.youtube iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .highlight:target{
