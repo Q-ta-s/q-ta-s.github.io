@@ -69,6 +69,7 @@ class ZFBimagesTool(tk.Frame):
             self.master, text="STOP", command=self.stop_processing, font=("Helvetica", 14), fg="red"
         )
         self.stop_button.grid(row=7, column=4, columnspan=2, pady=10)
+        self.stop_button["state"] = "disabled"
 
         # Mensajes de estado
         self.msg_var = tk.StringVar()
