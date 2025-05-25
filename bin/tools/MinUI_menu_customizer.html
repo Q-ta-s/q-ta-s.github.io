@@ -7,10 +7,9 @@
     <style>
         @media screen and (max-width: 600px) {
             body {
-                transform: scale(0.5);
-                transform-origin: top left;
-                width: 200vw;
-                overflow-x: auto;
+               zoom: 0.5;
+               max-width: 100vw;
+               overflow-x: auto;
             }
             .layout-container {
                 flex-direction: column;
@@ -500,7 +499,9 @@
         }
 
         document.getElementById("generateBtn").addEventListener("click", async (e) => {
+          let zoomValue = window.getComputedStyle(document.body).zoom;
           try {
+            if (zoomValue < 1) document.body.style.zoom = 1;
             e.target.disabled = true;
             document.getElementById('resetBtn').disabled = true;
             document.querySelector('.label-msg').style.display = "table-cell";
@@ -729,6 +730,7 @@
             document.getElementById('resetBtn').disabled = false;
             document.querySelector('input[name="pattern"]:not(:checked)').disabled = false;
             e.target.disabled = false;
+            if (zoomValue < 1) document.body.style.zoom = zoomValue;
           }
         });
 
