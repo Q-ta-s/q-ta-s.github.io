@@ -503,7 +503,11 @@
           try {
             if (zoomValue < 1) {
                 document.body.style.zoom = 1;
-                e.target.scrollIntoView({ behavior: "smooth" });
+                let resizeObserver = new ResizeObserver(() => {
+                    e.target.scrollIntoView({ behavior: "smooth" });
+                    resizeObserver.disconnect();
+                });
+                resizeObserver.observe(document.body);
             }
             e.target.disabled = true;
             document.getElementById('resetBtn').disabled = true;
