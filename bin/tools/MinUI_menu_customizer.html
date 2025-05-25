@@ -501,7 +501,14 @@
         document.getElementById("generateBtn").addEventListener("click", async (e) => {
           let zoomValue = window.getComputedStyle(document.body).zoom;
           try {
-            if (zoomValue < 1) document.body.style.zoom = 1;
+            if (zoomValue < 1) {
+                document.body.style.zoom = 1;
+                let resizeObserver = new ResizeObserver(() => {
+                    e.target.scrollIntoView({ behavior: "smooth" });
+                    resizeObserver.disconnect();
+                });
+                resizeObserver.observe(document.body);
+            }
             e.target.disabled = true;
             document.getElementById('resetBtn').disabled = true;
             document.querySelector('.label-msg').style.display = "table-cell";
