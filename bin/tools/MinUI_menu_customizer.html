@@ -7,7 +7,10 @@
     <style>
 @media screen and (max-width: 600px) {
     body {
-        zoom: 0.6;
+        transform: scale(0.6); /* 60%に縮小 */
+        transform-origin: top left;
+        width: 166vw; /* 縮小倍率に合わせて拡張 */
+        overflow-x: auto; /* 横スクロール許可 */
     }
 }
 .layout-container {
