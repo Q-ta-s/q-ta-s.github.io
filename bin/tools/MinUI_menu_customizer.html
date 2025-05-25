@@ -416,12 +416,12 @@
             let e = document.getElementById('name-font');
             let opt = document.getElementById('name-font-txt');
             opt.style.display = (e.value == 'Custom' ? 'inline-block' : 'none');
-            const default_font = '"BPreplay Embed", BPreplay, "Hiragino Maru Gothic Pro", "M PLUS Rounded 1c", Arial, sans-serif;';
+            const default_font = "'BPreplay Embed', BPreplay, 'Hiragino Maru Gothic Pro', 'M PLUS Rounded 1c', Arial, sans-serif";
             Theme_Font = default_font;
             if (e.value == 'Custom') {
-                if (opt.value && opt.value != 'BPreplay') Theme_Font = opt.value;
+                if (opt.value && opt.value != 'BPreplay') {Theme_Font = opt.value;}
             } else {
-                if (e.value && e.value != 'BPreplay') Theme_Font = e.value;
+                if (e.value && e.value != 'BPreplay')     {Theme_Font = e.value;}
             }
             const pattern = Number(document.querySelector('input[name="pattern"]:checked').value);
             const textInputs = document.querySelectorAll(".text-input");
