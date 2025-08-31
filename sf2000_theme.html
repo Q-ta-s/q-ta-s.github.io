@@ -42,6 +42,25 @@
     .container {
       transform: translate(-50%, 0%);
     }
+    details.link {
+        display: inline;
+    }
+    details.link::details-content {
+        font-size: 1em;
+    }
+    details.link > summary {
+        display: inline;
+        color: cornflowerblue;
+        text-decoration: none;
+    }
+    details.link > summary:hover {
+        text-decoration: underline;
+        text-underline-offset: 1px;
+    }
+    details.link > summary > span::after {
+        content: ".";
+        color: gray;
+    }
   </style>
  </head>
  <body>
@@ -57,12 +76,11 @@
   <ul>
     <li>・How to install the theme</li>
     <div class="msg"
-      >Simply unzip the downloaded theme ZIP file and overwrite it to the Resources folder on SD card.
-      <span class="mi">* Please read the notes in the Readme.txt included in the theme ZIP file.</span>
-
-      (Github)
-      <a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/releases/tag/latest">https://github.com/Q-ta-s/SF2000-Custom-Themes/releasestag/latest</a>
-      (SF2000 Theme Collection)
+      >Simply unzip the downloaded theme ZIP file and overwrite it to the Resources folder on SD card.<br
+      ><span class="mi">* Please read the notes in the Readme.txt included in the theme ZIP file.</span>
+      <br>(Github)
+      <a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/releases/tag/latest">https://github.com/Q-ta-s/SF2000-Custom-Themes/releasestag/latest</a><br
+      >(SF2000 Theme Collection)
       <a target="_blank" href="https://zerter555.github.io/sf2000-collection">https://zerter555.github.io/sf2000-collection</a>
     </div>
     <a target="_blank" href="imgs/Qs-Wii-ta_GB300_SF2000.png"><img src="imgs/Qs-Wii-ta_GB300_SF2000.png"></a>
@@ -181,9 +199,9 @@
       <li>
         <details>
           <summary>5. <b><u>Wii menu like style theme - ST</u></b></summary>
-            This theme is Standard menu specifications. 
-            <span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span>
-            This version should solve most of the problems with games not working on Wii style🤖.
+            This theme is Standard menu specifications. <br
+            ><span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span><br
+            >This version should solve most of the problems with games not working on Wii style🤖.
 
             * For intermediate users who like to customize the main menu, such as categorizing it for multicore (include PCE, GG/SMS, ATARI, NGPC etc), <a href="#wii_theme">Regular version</a> is recommended rather than this ST version. 
         </details>
@@ -201,9 +219,9 @@
       <li>
         <details>
           <summary>6. <b><span style="white-space: nowrap"><u>Wii menu like style theme</u><wbr> (without CRT TV-overlay) - ST</span></b></summary>
-            This theme is Standard menu specifications. 
-            <span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span>
-            * For intermediate users who like to customize the main menu, such as categorizing it for multicore (include PCE, GG/SMS, ATARI, NGPC etc), <a href="#wii_theme_wocrt">Regular version</a> is recommended rather than this ST version. 
+            This theme is Standard menu specifications. <br
+            ><span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span><br
+            >* For intermediate users who like to customize the main menu, such as categorizing it for multicore (include PCE, GG/SMS, ATARI, NGPC etc), <a href="#wii_theme_wocrt">Regular version</a> is recommended rather than this ST version. 
         </details>
       </li>
       <a target="_blank" href="imgs/Qs-Wii-ta-WoCRT-ST.png"><img src="imgs/Qs-Wii-ta-WoCRT-ST.png"></a>
@@ -219,9 +237,9 @@
       <li>
         <details>
           <summary>7. <b><u>Wii menu like style Dark theme - ST</u></b></summary>
-            This theme is Standard menu specifications. 
-            <span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span>
-            This version should solve most of the problems with games not working on Wii style👾.
+            This theme is Standard menu specifications. <br
+            ><span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span><br
+            >This version should solve most of the problems with games not working on Wii style👾.
 
             * For intermediate users who like to customize the main menu, such as categorizing it for multicore (include PCE, GG/SMS, ATARI, NGPC etc), <a href="#wii_dark_theme">Regular version</a> is recommended rather than this ST version. 
         </details>
@@ -239,9 +257,9 @@
       <li>
         <details>
           <summary>8. <b><span style="white-space: nowrap"><u>Wii menu like style Dark theme</u><wbr> (without CRT TV-overlay) - ST</span></b></summary>
-            This theme is Standard menu specifications👾. 
-            <span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span>
-            * For intermediate users who like to customize the main menu, such as categorizing it for multicore (include PCE, GG/SMS, ATARI, NGPC etc), <a href="#wii_dark_theme_wocrt">Regular version</a> is recommended rather than this ST version. 
+            This theme is Standard menu specifications👾. <br
+            ><span class="mi">FC, SFC, MD, GB, GBC, GBA, ARCADE, USER R&S</span><br
+            >* For intermediate users who like to customize the main menu, such as categorizing it for multicore (include PCE, GG/SMS, ATARI, NGPC etc), <a href="#wii_dark_theme_wocrt">Regular version</a> is recommended rather than this ST version. 
         </details>
       </li>
       <a target="_blank" href="imgs/Qs-Wii-ta-Dark-Theme-WoCRT-ST.png"><img src="imgs/Qs-Wii-ta-Dark-Theme-WoCRT-ST.png"></a>
@@ -265,36 +283,33 @@
           ></summary>
 * This custom theme is for "13 menus extended" (nightly build).
 <span class="mi"><b>2025.01.12:</b> The loading screen of multicore game is none, but the build below has changed it to black loading screen and is also the new build version, so also recommend it. 
-<a target="_blank" href="https://discord.com/channels/741895796315914271/1346239799924883567/1346831681360760862">https://discord.com/channels/741895796315914271/1346239799924883567/1346831681360760862</a>
-(Thank you <a target="_blank" href="https://github.com/Trademarked69">@Desoxyn</a> )
-</span>
-Thanks to <a target="_blank" href="https://github.com/geonux">@Geonux</a> for releasing the new BIOS build for testing👾 
-<span class="mi">(multicore credit) Developers: <a target="_blank" href="https://github.com/bnister">@osaka</a>, <a target="_blank" href="https://github.com/tzubertowski">@Prosty</a>, <a target="_blank" href="https://github.com/kobilutil">@Kobil</a>, <a target="_blank" href="https://github.com/madcock">@Michael Adcock</a>.
+<a target="_blank" href="https://discord.com/channels/741895796315914271/1346239799924883567/1346831681360760862">https://discord.com/channels/741895796315914271/1346239799924883567/1346831681360760862</a><br
+>(Thank you <a target="_blank" href="https://github.com/Trademarked69">@Desoxyn</a> )
+</span><br
+>Thanks to <a target="_blank" href="https://github.com/geonux">@Geonux</a> for releasing the new BIOS build for testing👾 <br
+><span class="mi">(multicore credit) Developers: <a target="_blank" href="https://github.com/bnister">@osaka</a>, <a target="_blank" href="https://github.com/tzubertowski">@Prosty</a>, <a target="_blank" href="https://github.com/kobilutil">@Kobil</a>, <a target="_blank" href="https://github.com/madcock">@Michael Adcock</a>.
 multicore license: <a target="_blank" href="https://github.com/madcock/sf2000_multicore_cores?tab=GPL-3.0-1-ov-file">https://github.com/madcock/sf2000_multicore_cores?tab=GPL-3.0-1-ov-file</a>
-</span>
-
-・The menu is set as follows: 
-<hr>
-&nbsp;1. NES (FC)
-&nbsp;2. SNES (SFC)
-&nbsp;3. GENESIS (MD)
-&nbsp;4. GB
-&nbsp;5. GBC
-&nbsp;6. GBA
-&nbsp;7. ARCADE (MAME/FBA)
-&nbsp;8. OTHER SEGA (GG/SMS/SEGA CD)
-&nbsp;9. ATARI/LYNX/NGPC
-10. WONDER SWAN
-11. PCE
-12. MULTICORE
-13. USER ROMS & SETTINGS
-<hr>
-
+</span><br>
+・The menu is set as follows: <br
+><hr><br
+>&nbsp;1. NES (FC)<br
+>&nbsp;2. SNES (SFC)<br
+>&nbsp;3. GENESIS (MD)<br
+>&nbsp;4. GB<br
+>&nbsp;5. GBC<br
+>&nbsp;6. GBA<br
+>&nbsp;7. ARCADE (MAME/FBA)<br
+>&nbsp;8. OTHER SEGA (GG/SMS/SEGA CD)<br
+>&nbsp;9. ATARI/LYNX/NGPC<br
+>10. WONDER SWAN<br
+>11. PCE<br
+>12. MULTICORE<br
+>13. USER ROMS & SETTINGS<br
+><hr><br>
 * BIOS spec itself include SNES-fix. Also supports multicore nightly in-game save ver. cores. (added FoldernamX.ini)
-Please make sure to backup your bios and Resources folder before applying the theme.
-
-<hr>
-<b>[Installation instruction]</b>
+Please make sure to backup your "bios" and "Resources" folder before applying the theme.
+<br><hr><br
+><b>[Installation instruction]</b>
 * Prepare SD card that has <a target="_blank" href="https://github.com/madcock/sf2000_multicore_cores/releases">multicore</a> installed and can play games normally.
 
 1. After backup the bios & Resources folder on the SD card, download and unzip the 13 menus extended build file and overwrite it on the SD card.
@@ -306,8 +321,7 @@ Please make sure to backup your bios and Resources folder before applying the th
 (rebuild recommend to specify "all". For details, please see Readme.txt included with theme's zip file)
 
 The installation is now complete. Boot SF2000 and check 13 menus.
-
-<span class="mi"><b>[Note:]</b>
+<br><span class="mi"><b>[Note:]</b>
 * If you already have rearranged the game list yourself using the <a target="_blank" href="https://github.com/nummacway/gb300-sf2000-tool/releases">V2 tool</a>, the order will be reset if you rebuild the game list with Qs_tool.
 (Because the custom reordering function is only supported by the V2 tool)</span>
 
@@ -379,8 +393,8 @@ The installation is now complete. Boot SF2000 and check 13 menus.
               * Installation Guide is explained in "detail ▼"
             </div
           ></summary>
-This HyperScreen is a plugin adjusted for the Wii menu style theme.
-<span class="mi">* <a target="_blank" href="https://youtu.be/7TH-ZLR3ghk">HyperScreen</a> is a feature invented by <a target="_blank" href="https://github.com/SpardaHunter">@Sparda_Hunter</a></span>
+This HyperScreen is a plugin adjusted for the Wii menu style theme.<br
+><span class="mi">* <a target="_blank" href="https://youtu.be/7TH-ZLR3ghk">HyperScreen</a> is a feature invented by <a target="_blank" href="https://github.com/SpardaHunter">@Sparda_Hunter</a></span>
 <div class="youtube">
 <iframe src="https://www.youtube.com/embed/7TH-ZLR3ghk?mute=1" 
 title="SF2000 Hyper Sparda Theme" frameborder="0" allow="picture-in-picture" 
@@ -391,8 +405,7 @@ This is a test trial version tool of HyperScreen V3 (Hyper Cube Game Menu).
 (That can generate HyperScreen png files in bulk)
 It currently works on Windows (Edge browser) and py, but there are still needs to be implemented and adjusted.
 However, attaching it for those who want to get a feel for Hyper Screen.
-
-<span class="mi"><b>[Note:]</b>
+<br><span class="mi"><b>[Note:]</b>
 Please make sure to put <u>hyper_cube_gen.html</u> and <u>script.js</u> in the same folder and open 'hyper_cube_gen.html'.
 <!-- When download a Zip file, the Windows security feature may add a block attribute to the Zip file itself. If this is the case, please right-click the Zip file, open its property, and unblock it, otherwise the tool will not work properly.
 <a target="_blank" href="imgs/unblock.jpg"><img src="imgs/unblock.jpg"></a>
@@ -405,85 +418,84 @@ After checking the above, must unzip the Zip file. (The tool will not work prope
 <span class="mi">* Before installing, recommend that make full backup of SD card just to be safe. (so that can restore them)</span>
 
 First, check the required tools.
------
-<b>[Necessary tools]</b>
+-----<br
+><b>[Necessary tools]</b>
 <span class="mi">1. <a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20Cube%20Game%20Menu">Hyper Screen Generator</a> (for Hyper Cube)
 --> hyper_cube_gen.html, script.js
-2. <a target="_blank" href="https://github.com/SpardaHunter/ZFBimagesToolSparda/releases/tag/SF2000_5">ZFBimagesToolSparda</a> (for HyperScreen)
+2. <a target="_blank" href="https://github.com/user-attachments/files/22061915/HyperScreen_Enabler_for_Wii_style_Hyper_Cube.zip">HyperScreen Enabler</a>
+--> /Resources/Qs_tool/HyperScreen_Enabler_for_Wii_style_Hyper_Cube.bat
+3. <a target="_blank" href="https://github.com/SpardaHunter/ZFBimagesToolSparda/releases/tag/SF2000_5">ZFBimagesToolSparda</a> (for HyperScreen)
 *If it doesn't work properly, try alternative version <a target="_blank" href="https://github.com/Q-ta-s/q-ta-s.github.io/raw/refs/heads/main/bin/tools/ZFBimagesToolSparda_Hyper_V5-single_thread.exe">here</a>.
-3. Tool for rebuild game list (<a target="_blank" href="https://github.com/tzlion/frogtool">frogtool</a>, or <a target="_blank" href="https://github.com/SpardaHunter/frogtoolGUI-Sparda">frogtool GUI</a>, or <a href="#wii_theme_13menus">Qs_tool</a>(*Included in the custom theme), etc)
+4. Tool for rebuild game list (<a target="_blank" href="https://github.com/tzlion/frogtool">frogtool</a>, or <a target="_blank" href="https://github.com/SpardaHunter/frogtoolGUI-Sparda">frogtool GUI</a>, or <a href="#wii_theme_13menus">Qs_tool</a>(*Included in the custom theme), etc)
+
 </span>
 -----
-<b>[Installation instruction]</b>
-1. Open "<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20Cube%20Game%20Menu">Hyper Screen Generator</a>" (<u>hyper_cube_gen.html</u>).
-... Windows Edge browser is recommended, Chrome browser will probably work too.
-
-2. Click the button next to "*Game files:".
-<a target="_blank" href="imgs/tool20250320214602.png"><img style="width: 30%;" src="imgs/tool20250320214602.png"></a>
-... Find the folder containing the target game files and select all the game files in it, (Press Ctrl+A key) and click the OK button. The number of files will now be displayed on the screen. You will also see a preview of the actual game menu status on the left side of the screen. 
+<b>[Installation instruction]</b><br
+>1. Open "<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20Cube%20Game%20Menu">Hyper Screen Generator</a>" (<u>hyper_cube_gen.html</u>).
+... Windows Edge browser is recommended, Chrome browser will probably work too.<br
+><br
+>2. Click the button next to "*Game files:".<br
+><a target="_blank" href="imgs/tool20250320214602.png"><img style="width: 30%;" src="imgs/tool20250320214602.png"></a><br
+>... Find the folder containing the target game files and select all the game files in it, (Press Ctrl+A key) and click the OK button. The number of files will now be displayed on the screen. You will also see a preview of the actual game menu status on the left side of the screen. 
 
 3. Press the "Generate!" button, this completes the generation of the HyperScreen. Press OK on the completion message to download the ZIP file. ("merged_images.zip")
 
 4. All that remains is to create a ZFB file using the HyperScreen pngs in the ZIP file.
-... Once have extracted all the pngs in the ZIP file, run the "ZFBimagesToolSparda Hyper". Specify the above png folder as the Input folder and specify the core name and file extension (image size is "auto"), and click the "Create ZFB Files" button to complete the zfb file generation. 
-<a target="_blank" href="imgs/zfbimagestool_hyper.png"><img src="imgs/zfbimagestool_hyper.png"></a>
-(* Please refer to the screenshot above. For stock core arcade games, turn on the "ARCADE" checkbox on screenshot above.)
+... Once have extracted all the pngs in the ZIP file, run the "ZFBimagesToolSparda Hyper". Specify the above png folder as the Input folder and specify the core name and file extension (image size is "auto"), and click the "Create ZFB Files" button to complete the zfb file generation. <br
+><a target="_blank" href="imgs/zfbimagestool_hyper.png"><img src="imgs/zfbimagestool_hyper.png"></a><br
+>(* Please refer to the screenshot above. For stock core arcade games, turn on the "ARCADE" checkbox on screenshot above.)
 
 5. Copy the resulting zfb file to the target folder on the SD card. (FC/SFC/MD/GBA, etc. folder)
-... Also, modify the following file: 
-<span class="mi">"/Resources/Foldername.ini"</span>
-Change the second line from the bottom to the following.
+And run tool (frogtool or frogtool GUI or Qs_tool) to rebuild game listings.
 
----Before change (example) ---
-<span class="mi">24 102 144 208</span>
-
----After change ---
-<span class="mi">0 80 640 400</span>
-<span class="mi">* Just change the 4 numbers (x x 144 208) to <u>0 80 640 400</u>.</span>
-
-At end, run tool (frogtool or frogtool GUI or Qs_tool) to rebuild game listings.
-
------
-With the above 5 steps, the installation is complete🆗
+At end, run "<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20Cube%20Game%20Menu">HyperScreen Enabler</a>" (/Resources/Qs_tool/<u>HyperScreen_Enabler_for_Wii_style_Hyper_Cube.bat</u>).
+*In case for the first time, copy "HyperScreen_Enabler_for_Wii_style_Hyper_Cube.bat" into the "/Resources/Qs_tool" folder.
+<span class="mi">*If above batch file above doesn't work, please also try the steps in <details class="link"><summary><span>this link</span></summary>
+<span>... Please modify the following file: <br
+><span class="mi"><span translate="no">"/Resources/Foldername.ini"</span></span><br
+>Change the second line from the bottom to the following.<br
+>
+---Before change (example) ---<br
+><span class="mi">24 102 144 208</span><br>
+---After change ---<br><span class="mi">0 80 640 400</span><br
+><span class="mi">* Just change the 4 numbers (x x 144 208) to <u>0 80 640 400</u>.</span></span>
+</details>
+</span><br>-----<br
+>With the above 5 steps, the installation is complete🆗
 Start SF2000 and enjoy the new Hyper Cube Menu!
 </div>
 
 <hr>
 <div id="Cube_Inst_Advance" class="highlight"><b>・<u>Installation Guide (Advanced)</u></b>
-
-Once have successfully verified the operation of HyperScreen in the "<a href="#Cube_Inst_Basic">Basic Introduction</a>", let's add <u>cover images</u> (thumbnails), <u>cube panel</u>, and <u>information text</u>.👾
-
------
-<b>[Necessary tools]</b>
-<span class="mi">・<a target="_blank" href="https://www.skraper.net/">Skraper</a> --> tool to get cover art and game logo (please see Skraper tutorial for how to use)
-・<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20Cube%20Game%20Menu">cube_panel_converter.py</a> --> tool to transform game logo images to fit into a cube shape (batch generation of cube panel pngs)
-* If would like to use Windows exe instead of py, can download it from the URL below.
-<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/raw/refs/heads/main/%23plugins/Hyper%20Cube%20Game%20Menu/cube_panel_converter_v0.1.exe">https://github.com/Q-ta-s/SF2000-Custom-Themes/raw/refs/heads/main/%23plugins/Hyper%20Cube%20Game%20Menu/cube_panel_converter_v0.1.exe</a>
-
+<br>Once have successfully verified the operation of HyperScreen in the "<a href="#Cube_Inst_Basic">Basic Introduction</a>", let's add <u>cover images</u> (thumbnails), <u>cube panel</u>, and <u>information text</u>.👾
+<br>-----<br
+><b>[Necessary tools]</b>
+<span class="mi">・<a target="_blank" href="https://www.skraper.net/">Skraper</a> --> tool to get cover art and game logo (please see Skraper tutorial for how to use)<br
+>・<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20Cube%20Game%20Menu">cube_panel_converter.py</a> --> tool to transform game logo images to fit into a cube shape (batch generation of cube panel pngs)
+* If would like to use Windows exe instead of py, can download it from the URL below.<br
+><a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/raw/refs/heads/main/%23plugins/Hyper%20Cube%20Game%20Menu/cube_panel_converter_v0.1.exe">https://github.com/Q-ta-s/SF2000-Custom-Themes/raw/refs/heads/main/%23plugins/Hyper%20Cube%20Game%20Menu/cube_panel_converter_v0.1.exe</a><br>
 * Other tools are the same as in "<a href="#Cube_Inst_Basic">Basic Introduction</a>".
 
-</span>
-Prepare <u>the cover image No.1 and No.2 png images</u> and <u>the game logo png images for the cube panel</u> using Skraper or other tools. 
+</span><br
+>Prepare <u>the cover image No.1 and No.2 png images</u> and <u>the game logo png images for the cube panel</u> using Skraper or other tools. 
 (Each of the three folders should contain png image files with the same name as the game file name (excluding the file extension)). 
 Also, if necessary, store <u>info text files</u> (*.txt) with the same name in the fourth folder as well. In the info text file, fill in the game maker name, release date, and game features using a text editor and save it.
-
------
-<b>[Instruction]</b>
-<b style="color: dimgray;">I.</b> First the steps are same 1~2 of the "<a href="#Cube_Inst_Basic">Basic Introduction</a>", but to add <u>cube panel</u> (game logos), use the <u>cube_panel_converter.py</u> tool (or <a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/raw/refs/heads/main/%23plugins/Hyper%20Cube%20Game%20Menu/cube_panel_converter_v0.1.exe">cube_panel_converter_v0.1.exe</a>) to specify the folder where the <u>game logo</u> png image is stored, and convert it to a <u>cube panel</u> (bulk transformed png images that fits into the cube). 
-<a target="_blank" href="imgs/cube_convert1.png"><img src="imgs/cube_convert1.png"></a>
-(The "cubes" folder will be automatically created in the input folder.)
-<a target="_blank" href="imgs/cube_convert2.png"><img src="imgs/cube_convert2.png"></a>
-Then, click the button to the right of "Cube panels:" on the browser screen, select all the png images in the above "cubes" folder (press Ctrl+A key), and press OK.
+<br>-----<br
+><b>[Instruction]</b><br><b style="color: dimgray;"
+>I.</b> First the steps are same 1~2 of the "<a href="#Cube_Inst_Basic">Basic Introduction</a>", but to add <u>cube panel</u> (game logos), use the <u>cube_panel_converter.py</u> tool (or <a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/raw/refs/heads/main/%23plugins/Hyper%20Cube%20Game%20Menu/cube_panel_converter_v0.1.exe">cube_panel_converter_v0.1.exe</a>) to specify the folder where the <u>game logo</u> png image is stored, and convert it to a <u>cube panel</u> (bulk transformed png images that fits into the cube). <br
+><a target="_blank" href="imgs/cube_convert1.png"><img src="imgs/cube_convert1.png"></a><br
+>(The "cubes" folder will be automatically created in the input folder.)<br
+><a target="_blank" href="imgs/cube_convert2.png"><img src="imgs/cube_convert2.png"></a><br
+>Then, click the button to the right of "Cube panels:" on the browser screen, select all the png images in the above "cubes" folder (press Ctrl+A key), and press OK.
 This will also allow to see the cube panels added in the preview if the game files were already selected in step 2 of the "<a href="#Cube_Inst_Basic">Basic Introduction</a>".
-
-<b style="color: dimgray;">II.</b> If necessary, select all the image/text files by pressing the respective buttons for <u>cover images</u> 1 and 2, and for the <u>info text</u> in the same way as above. (Open each folder, press Ctrl+A key and press OK.)
-Can also check the status of each addition in the preview.
-<a target="_blank" href="imgs/hyper_cube_gen.png"><img style="border: 1px solid gray;" src="imgs/hyper_cube_gen.png"></a>
-
-<b style="color: dimgray;">III.</b> The rest of the steps are the same as those described in "<a href="#Cube_Inst_Basic">Basic Introduction</a>" 3~5.
-
------
-With the above 3 steps, HyperScreen integration is complete.🆗
+<br><b style="color: dimgray;"
+>II.</b> If necessary, select all the image/text files by pressing the respective buttons for <u>cover images</u> 1 and 2, and for the <u>info text</u> in the same way as above. (Open each folder, press Ctrl+A key and press OK.)
+Can also check the status of each addition in the preview.<br
+><a target="_blank" href="imgs/hyper_cube_gen.png"><img style="border: 1px solid gray;" src="imgs/hyper_cube_gen.png"></a>
+<br><b style="color: dimgray;"
+>III.</b> The rest of the steps are the same as those described in "<a href="#Cube_Inst_Basic">Basic Introduction</a>" 3~5.
+<br>-----<br
+>With the above 3 steps, HyperScreen integration is complete.🆗
 Start SF2000 and enjoy the new Hyper Cube Menu!
 </div>
 
@@ -578,7 +590,7 @@ If use this icon to paste into Resources, able to customize to liking favorite g
     <div id="e2_pb_mario_kart" class="highlight">
       <div class="ttl2">
         <b>・E2-PB like style theme - Mario Kart Edition</b>
-      </div><div class="msg">Discord - the custom theme at "Let's make your own favorite theme in the like style of E2-PB!" voting project. (which received the most votes)</div>
+      </div><div class="msg">Discord - the custom theme at <a target="_blank" href="https://discord.com/channels/741895796315914271/1345670270819766313/1345748955266551891">"Let's make your own favorite theme in the like style of E2-PB!" voting project</a>. (which received the most votes)</div>
       <a target="_blank" href="imgs/E2-PB - Mario Kart Edition.png"><img src="imgs/E2-PB - Mario Kart Edition.png"></a>
       <a target="_blank" href="imgs/kmbcj.acp_e2.png"><img src="imgs/kmbcj.acp_e2.png"></a>
       <div class="msg"
@@ -602,7 +614,7 @@ If use this icon to paste into Resources, able to customize to liking favorite g
     <div id="e2_pb_dark_retro_gamer" class="highlight">
       <div class="ttl2">
         <b>・E2-PB like style Dark theme - Retro Gamers Edition</b>
-      </div><div class="msg">Discord - the custom theme at "Let's make your own favorite theme in the like style of E2-PB!" voting project.</div>
+      </div><div class="msg">Discord - the custom theme at <a target="_blank" href="https://discord.com/channels/741895796315914271/1345670270819766313/1345771031289266206">"Let's make your own favorite theme in the like style of E2-PB!" voting project</a>.</div>
       <a target="_blank" href="imgs/E2-PB - Retro Gamers Edition.png"><img src="imgs/E2-PB - Retro Gamers Edition.png"></a>
       <a target="_blank" href="imgs/kmbcj.acp_e2d.png"><img src="imgs/kmbcj.acp_e2d.png"></a>
       <div class="msg"
@@ -719,9 +731,9 @@ It's very easy to make, just modify the menu as shown in the video below and pre
     Your browser cannot play the video.
   </video>
 </div>
-Once the generate is complete, "menus.zip" will be downloaded.
-<a target="_blank" href="imgs/minui_2025-05-25 204629.png"><img style="width: 29.5%;" src="imgs/minui_2025-05-25 204629.png"></a><a target="_blank" href="imgs/minui_2025-05-25 204650.png"><img style="width: 29.5%;" src="imgs/minui_2025-05-25 204650.png"></a>
-All have to do is overwrite the "Resources" folder in it to your SD card and done!🐸
+Once the generate is complete, "menus.zip" will be downloaded.<br
+><a target="_blank" href="imgs/minui_2025-05-25 204629.png"><img style="width: 29.5%;" src="imgs/minui_2025-05-25 204629.png"></a><a target="_blank" href="imgs/minui_2025-05-25 204650.png"><img style="width: 29.5%;" src="imgs/minui_2025-05-25 204650.png"></a><br
+><br>All have to do is overwrite the "Resources" folder in it to your SD card and done!🐸
 
 <span class="mi">The web browser has been confirmed to work with Edge or Google Chrome. (It may not work properly with other browsers)
 *Can also change the names of each folder, but after copying them to the "Resources" folder, recommend that rebuild the SD card using the <a href="#wii_theme_13menus">Qs_tool</a> batch file. (*The batch file is included in the custom theme)
@@ -753,9 +765,9 @@ All have to do is overwrite the "Resources" folder in it to your SD card and don
       ・<span class="new-icon">NEW!</span> (plugin) MinUI - Hyper List Game Menu
       </div>
       <li class="msg" 
-        > This is a plugin that changes the game selection list menu to a MinUI-style interface.
-        <span class="mi">Please refer to the link below for instructions on how to use it.
-        <a target="_blank" href="https://discord.com/channels/741895796315914271/1345670270819766313/1385807751409696899">https://discord.com/channels/741895796315914271/1345670270819766313/1385807751409696899</a></span>
+        > This is a plugin that changes the game selection list menu to a MinUI-style interface.<br
+        ><span class="mi">Please refer to the link below for instructions on how to use it.<br
+        ><a target="_blank" href="https://discord.com/channels/741895796315914271/1345670270819766313/1385807751409696899">https://discord.com/channels/741895796315914271/1345670270819766313/1385807751409696899</a></span>
       </li>
       <a target="_blank" href="imgs/urlkp.bvs.png"><img src="imgs/urlkp.bvs.png"></a>
       <a target="_blank" href="imgs/md.bvs3.png"><img src="imgs/md.bvs3.png"></a>
