@@ -124,7 +124,11 @@ summary::-webkit-details-marker {
     display: none;
 }
 
-summary::after {
+details > summary::after {
+    content: none;
+}
+
+details:not(.link) > summary::after {
     position: absolute;
     color: cornflowerblue;
     font-size: 70%;
@@ -139,7 +143,7 @@ summary:hover::after {
     text-underline-offset: 1px;
 }
 
-details[open] summary::after{
+details[open]:not(.link) > summary::after {
     content: "detail \025b2";
     /* color: gray; */
     top: 1.73em;
