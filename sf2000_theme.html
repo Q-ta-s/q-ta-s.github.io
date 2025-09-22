@@ -348,18 +348,121 @@ multicore license: <a target="_blank" href="https://github.com/madcock/sf2000_mu
 
     <hr>
 
-    <div id="wii_theme_hyper_list" class="highlight">
+    <div id="wii_theme_hyper_list" class="other highlight">
       <div class="ttl2" style="font-size: 88%;">
-      ・(plugin) Wii style theme - Hyper List Game Menu
+        <details>
+          <summary>・<span class="new-icon">NEW!</span> (plugin) Wii style theme - Hyper List Game Menu
+            <div class="msg"
+              > This is a plugin that changes the game selection list menu to a <a target="_blank" href="https://discord.com/channels/741895796315914271/1345705787514687538/1347564516505948233">new interface</a>. (* currently a testing release.)
+              * Installation Guide is explained in <span translate="no">"detail ▼"</span>
+            </div
+          ></summary>
+This HyperScreen is a plugin adjusted for the Wii menu style theme.<br
+><span class="mi">* <a target="_blank" href="https://youtu.be/7TH-ZLR3ghk">HyperScreen</a> is a feature invented by <a target="_blank" href="https://github.com/SpardaHunter">@Sparda_Hunter</a></span>
+<div class="youtube">
+<iframe src="https://www.youtube.com/embed/7TH-ZLR3ghk?mute=1" 
+title="SF2000 Hyper Sparda Theme" frameborder="0" allow="picture-in-picture" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+This is a test trial version tool of HyperScreen V1 (Hyper List Game Menu).
+(That can generate HyperScreen png files in bulk)
+It currently works on Windows (Edge browser), but there are still needs to be implemented and adjusted.
+However, attaching it for those who want to get a feel for Hyper Screen. <!--
+When download a Zip file, the Windows security feature may add a block attribute to the Zip file itself. If this is the case, please right-click the Zip file, open its property, and unblock it, otherwise the tool will not work properly.
+<a target="_blank" href="imgs/unblock.jpg"><img src="imgs/unblock.jpg"></a>
+After checking the above, must unzip the Zip file. (The tool will not work properly unless you unzip it.)
+--></span>
+
+<hr>
+<div id="List_Inst_Basic" class="highlight"><b>・<u>Installation Guide (Basic Introduction)</u></b>
+
+<span class="mi">* Before installing, recommend that make full backup of SD card just to be safe. (so that can restore them)</span>
+
+First, check the required tools.<br
+>-----<br
+><b>[Necessary tools]</b>
+<span class="mi">1. <a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20List%20Game%20Menu">Hyper Screen Generator</a> (for Hyper List)
+--> hyper_list_gen.html <br
+>2. <a target="_blank" href="https://github.com/user-attachments/files/22061915/HyperScreen_Enabler_for_Wii_style_Hyper_List.zip">HyperScreen Enabler</a>
+--> /Resources/Qs_tool/HyperScreen_Enabler_for_Wii_style_Hyper_List.bat <br
+>3. <a target="_blank" href="https://github.com/SpardaHunter/ZFBimagesToolSparda/releases/tag/SF2000_5">ZFBimagesToolSparda</a> (for HyperScreen)
+*If it doesn't work properly, try alternative version <a target="_blank" href="https://github.com/Q-ta-s/q-ta-s.github.io/raw/refs/heads/main/bin/tools/ZFBimagesToolSparda_Hyper_V5-single_thread.exe">here</a>. <br
+>4. Tool for rebuild game list (<a target="_blank" href="https://github.com/tzlion/frogtool">frogtool</a>, or <a target="_blank" href="https://github.com/SpardaHunter/frogtoolGUI-Sparda">frogtool GUI</a>, or <a href="#wii_theme_13menus">Qs_tool</a>(*Included in the custom theme), etc)
+
+</span>
+-----
+<b>[Installation instruction]</b>
+<p>1. Open "<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20List%20Game%20Menu">Hyper Screen Generator</a>" (<u>hyper_list_gen.html</u>).
+... Windows Edge browser is recommended, Chrome browser will probably work too. </p>
+<p>2. Click the button next to "*Game files:". <br
+><a target="_blank" href="imgs/tool20250922214602.png"><img style="width: 30%;" src="imgs/tool20250922214602.png"></a> <br
+>... Find the folder containing the target game files and select all the game files in it, (Press Ctrl+A key) and click the OK button. The number of files will now be displayed on the screen. You will also see a preview of the actual game menu status on the left side of the screen. </p>
+<p>3. Press the "Generate!" button, this completes the generation of the HyperScreen. Press OK on the completion message to download the ZIP file. ("merged_images.zip") </p>
+<p>4. All that remains is to create a ZFB file using the HyperScreen pngs in the ZIP file. <br
+>... Once have extracted all the pngs in the ZIP file, run the "ZFBimagesToolSparda Hyper". Specify the above png folder as the Input folder and specify the core name and file extension (image size is "auto"), and click the "Create ZFB Files" button to complete the zfb file generation. <br
+><a target="_blank" href="imgs/zfbimagestool_hyper.png"><img src="imgs/zfbimagestool_hyper.png"></a> <br
+>(* Please refer to the screenshot above. For stock core arcade games, turn on the "ARCADE" checkbox on screenshot above.) </p>
+<p>5. Copy the resulting zfb file to the target folder on the SD card. (FC/SFC/MD/GBA, etc. folder) <br
+>And run tool (frogtool or frogtool GUI or Qs_tool) to rebuild game listings. <br>
+At end, run "<a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20List%20Game%20Menu">HyperScreen Enabler</a>" (/Resources/Qs_tool/<u>HyperScreen_Enabler_for_Wii_style_Hyper_List.bat</u>).
+*In case for the first time, copy "HyperScreen_Enabler_for_Wii_style_Hyper_List.bat" into the "/Resources/Qs_tool" folder. </p
+><span class="mi">*If above batch file above doesn't work, please also try the steps in <details class="link"><summary><span>this link</span></summary>
+<span>... Please modify the following file: <br
+><span class="mi"><span translate="no">"/Resources/Foldername.ini"</span></span><br
+>Change the second line from the bottom to the following.<br
+>
+---Before change (example) ---<br
+><span class="mi">24 102 144 208</span><br>
+---After change ---<br><span class="mi">0 95 640 385</span><br
+><span class="mi">* Just change the 4 numbers (x x 144 208) to <u>0 95 640 385</u>.</span></span>
+</details>
+</span><br>-----<br
+>With the above 5 steps, the installation is complete🆗
+Start SF2000 and enjoy the new Hyper List Menu!
+</div>
+
+<hr>
+<div id="List_Inst_Advance" class="highlight"><b>・<u>Installation Guide (Advanced)</u></b>
+<br>Once have successfully verified the operation of HyperScreen in the "<a href="#List_Inst_Basic">Basic Introduction</a>", let's add <u>cover images</u> (thumbnails), and <u>logo</u>.👾
+
+<p>-----<br
+><b>[Necessary tools]</b>
+<span class="mi">・<a target="_blank" href="https://www.skraper.net/">Skraper</a> --> tool to get cover art and game logo (please see Skraper tutorial for how to use)<br
+>* Other tools are the same as in "<a href="#List_Inst_Basic">Basic Introduction</a>".
+
+</span><br
+>Prepare <u>the cover image No.1 and No.2 png images</u> and <u>the game logo png images</u> using Skraper or other tools. <br
+>(Each of the three folders should contain png image files with the same name as the game file name (excluding the file extension)). <br></p>
+<p>-----<br
+><b>[Instruction]</b>
+<p><b style="color: dimgray;">I.</b> If necessary, select all the image/logo files by pressing the respective buttons for <u>cover images</u> 1 and 2, and for <u>logo images</u> in the same way as above. (Open each folder, press Ctrl+A key and press OK.)
+Can also check the status of each addition in the preview.<br
+><a target="_blank" href="imgs/hyper_list_gen.png"><img style="border: 1px solid gray;" src="imgs/hyper_list_gen.png"></a>
+</p>
+<p><b style="color: dimgray;">II.</b> The rest of the steps are the same as those described in "<a href="#List_Inst_Basic">Basic Introduction</a>" 3~5.</p>
+-----<br
+>With the above 3 steps, HyperScreen integration is complete.🆗
+Start SF2000 and enjoy the new Hyper List Menu!
+</div>
+        </details>
       </div>
-      <li class="msg" 
-        > This is a plugin that changes the game selection list menu to a <a target="_blank" href="https://discord.com/channels/741895796315914271/1345705787514687538/1347564516505948233">new interface</a>
-      </li>
-      <a target="_blank" href="imgs/apisa2_RE2.png"><img src="imgs/apisa2_RE2.png"></a>
-      <a target="_blank" href="imgs/apisa3_Tomb Raider.png"><img src="imgs/apisa3_Tomb Raider.png"></a>
-      <li class="msg"
-        >Coming soon
-      </li>
+      <a target="_blank" href="imgs/apisa2_resident_evil2.png"><img src="imgs/apisa2_RE2.png"></a>
+      <a target="_blank" href="imgs/apisa3_tomb_raider.png"><img src="imgs/apisa3_tomb_raider.png"></a>
+      <table>
+        <tr>
+          <td>
+            <div class="msg"
+              ><a target="_blank" href="https://github.com/Q-ta-s/SF2000-Custom-Themes/tree/main/%23plugins/Hyper%20List%20Game%20Menu">Download (test)</a>
+            </div>
+          </td>
+          <td>
+            <div class="msg"
+              > &nbsp; &nbsp;<a target="_blank" href="bin/tools/hyper_list_gen.html">Open Generator &gt;</a>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
 
     <br>
