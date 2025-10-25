@@ -308,9 +308,25 @@
         const LINE_TOP = 0;
         const LINE_SPACING = 1;
         const VERTICAL_MARGIN = 0;
-        document.getElementById("mainFileInput").addEventListener("change", updatePreview);
-        document.getElementById("cover1Input").addEventListener("change", updatePreview);
-        document.getElementById("cover2Input").addEventListener("change", updatePreview);
+
+        const tempObjectUrls = [];
+
+        // all controls
+        const allInputSelectors = [
+          "#mainFileInput",
+          "#cover1Input",
+          "#cover2Input",
+          "#name-font",
+          "#name-font-txt",
+          "#name-font-h",
+          "#name-font-top",
+          "#name-font-left"
+        ].join(",");
+        document.querySelectorAll(allInputSelectors).forEach(el => {
+          if (el.id && el.id.toLowerCase().includes('font')) return;
+          el.addEventListener('change', updatePreview);
+        });
+
         document.getElementById("generateBtn").addEventListener("click", async (e) => {
           if (getFiles("mainFileInput").length === 0) {
               alert('Please Select Game Files.');
@@ -318,6 +334,8 @@
           }
           let zoomValue = window.getComputedStyle(document.body).zoom;
           try {
+            setControlsDisabled(true);
+
             if (zoomValue < 1) {
                 document.body.style.zoom = 1;
                 let resizeObserver = new ResizeObserver(() => {
@@ -326,14 +344,13 @@
                 });
                 resizeObserver.observe(document.body);
             }
-            e.target.disabled = true;
             document.querySelector('.label-msg').style.display = "table-cell";
             document.querySelector('.donutSpinner').style.display = "inline-block";
             await processFiles(getFiles("mainFileInput"), getFiles("cover1Input"), getFiles("cover2Input"), false);
           } finally {
             document.querySelector('.donutSpinner').style.display = "none";
             document.querySelector('.label-msg').style.display = "none";
-            e.target.disabled = false;
+            setControlsDisabled(false);
             if (zoomValue < 1) document.body.style.zoom = zoomValue;
             setTimeout(() => alert('Process complete.'), 100);
           }
@@ -369,6 +386,41 @@
             });
         }
 
+        async function loadAndInsertImage(file, container, classNames = []) {
+          const url = URL.createObjectURL(file);
+          tempObjectUrls.push(url);
+          try {
+            const img = await loadImage(url);
+            classNames.forEach(cn => img.classList.add(cn));
+            container.appendChild(img);
+            return img;
+          } catch (e) {
+            console.warn('loadAndInsertImage failed', e);
+            return null;
+          }
+        }
+
+        function revokeAllTempObjectUrls() {
+          try {
+            tempObjectUrls.forEach(u => { try { URL.revokeObjectURL(u); } catch(e){} });
+          } finally {
+            tempObjectUrls.length = 0;
+          }
+        }
+
+        function setControlsDisabled(disabled) {
+          document.getElementById("generateBtn").disabled = disabled;
+          document.querySelectorAll(allInputSelectors).forEach(el => el.disabled = disabled);
+        }
+
+        function frogtool_sortWithoutExt(files) {
+          return files.sort((a, b) => {
+            const na = a.name.replace(/\.[^/.]+$/, "");
+            const nb = b.name.replace(/\.[^/.]+$/, "");
+            return na < nb ? -1 : na > nb ? 1 : 0;
+          });
+        }
+
         async function updatePreview() {
             let zoomValue = window.getComputedStyle(document.body).zoom;
             if (zoomValue < 1) document.body.style.zoom = 1;
@@ -379,15 +431,17 @@
         async function processFiles(mainFiles, cover1Files, cover2Files, isPreview) {
             const previewContainer = document.getElementById("previewContainer");
             previewContainer.innerHTML = "";
+            revokeAllTempObjectUrls();
             let zip = new JSZip();
 
             const MAX_ZIP_SIZE = 2 * 1024 * 1024 * 1024;
             let currentZipSize = 0;
             let zipIndex = 1;
-            if (mainFiles.length === 0) return;
+            if (!mainFiles || mainFiles.length === 0) return;
 
             const filesPerImage = 8;
             const totalPNGs = isPreview ? 1 : mainFiles.length;
+            mainFiles = frogtool_sortWithoutExt(mainFiles);
 
             for (let i = 0; i < totalPNGs; i++) {
                 const fileGroup = mainFiles.slice(Math.floor(i / filesPerImage) * filesPerImage, Math.floor(i / filesPerImage) * filesPerImage + filesPerImage);
@@ -443,7 +497,8 @@
                     previewContainer.appendChild(textElement);
                     //-------------------------------------------------------------------------------
 
-                    if (isPreview ? index === 0 : index === i % filesPerImage) { 
+                    const isHi = isPreview ? index === 0 : index === i % filesPerImage;
+                    if (isHi) {
                         listItem.classList.add("highlight");
                         currentFileName = fileName;
                         //-- Smoothing process ----------------------------------------------------------
@@ -474,11 +529,12 @@
                             blurCanvas.height = rect.height + padding;
                             ctx.shadowColor = "rgba(255, 255, 255, 0.95)";
                             ctx.shadowBlur = 3;
-                            for (let i = 0; i < 4; i++) {
+                            for (let ii = 0; ii < 4; ii++) {
                                 ctx.drawImage(canvas, padding / 2, padding / 2, rect.width, rect.height);
                             }
                             clone.style.backgroundImage = `url(${blurCanvas.toDataURL("image/png")})`;
                         });
+
                         original.parentElement.appendChild(clone);
                         original.style.visibility = "hidden";
                         textElement.style.zIndex = 11;
@@ -486,19 +542,16 @@
                         //-------------------------------------------------------------------------------
                     }
 
-                    if (isPreview ? index === 0 : index === i % filesPerImage) { 
+                    if (isHi) {
                         const cover1File = cover1Files.find(c => c.name.replace(/\.[^/.]+$/, "") === fileName);
                         const cover2File = cover2Files.find(c => c.name.replace(/\.[^/.]+$/, "") === fileName);
 
                         if (cover1File) {
-                            const url1 = URL.createObjectURL(cover1File);
-                            const cover1Img = await loadImage(url1);
                             const cover1Wrapper = document.createElement("div");
                             cover1Wrapper.className = "cover1-wrapper";
                             const cover1Frame = document.createElement("div");
                             cover1Frame.className = "cover1-frame";
-                            cover1Img.classList.add("cover1-image");
-                            cover1Frame.appendChild(cover1Img);
+                            await loadAndInsertImage(cover1File, cover1Frame, ["cover1-image"]);
                             cover1Wrapper.appendChild(cover1Frame);
                             previewContainer.appendChild(cover1Wrapper);
                             //-- Smoothing process ----------------------------------------------------------
@@ -522,7 +575,7 @@
                                 blurCanvas.height = rect.height + padding;
                                 ctx.shadowColor = "rgba(32, 36, 32, 0.95)";
                                 ctx.shadowBlur = 3;
-                                for (let i = 0; i < 4; i++) {
+                                for (let ii = 0; ii < 4; ii++) {
                                     ctx.drawImage(canvas, padding / 2, padding / 2, rect.width, rect.height);
                                 }
                                 clone.style.backgroundImage = `url(${blurCanvas.toDataURL("image/png")})`;
@@ -532,10 +585,7 @@
                             //-------------------------------------------------------------------------------
                         }
                         if (cover2File) {
-                            const url2 = URL.createObjectURL(cover2File);
-                            const cover2Img = await loadImage(url2);
-                            cover2Img.classList.add("cover2-image");
-                            previewContainer.appendChild(cover2Img);
+                            await loadAndInsertImage(cover2File, previewContainer, ["cover2-image"]);
                         }
                     }
                     index ++;
@@ -559,6 +609,8 @@
                                 if (currentZipSize + fileSize > MAX_ZIP_SIZE) {
                                     const currentZipBlob = await zip.generateAsync({ type: "blob" });
                                     saveAs(currentZipBlob, `merged_images_part${zipIndex}.zip`);
+                                    revokeAllTempObjectUrls();
+
                                     zipIndex++;
                                     zip = new JSZip();
                                     currentZipSize = 0;
@@ -566,7 +618,7 @@
                                 zip.file(fileName, blob);
                                 currentZipSize += fileSize;
                                 resolve();
-                            });
+                            }, "image/png");
                         });
                     });
                 }
@@ -577,6 +629,7 @@
             if (!isPreview) {
                 const zipBlob = await zip.generateAsync({ type: "blob" });
                 saveAs(zipBlob, zipIndex === 1 ? "merged_images.zip" : `merged_images_part${zipIndex}.zip`);
+                revokeAllTempObjectUrls();
             }
         }
 
