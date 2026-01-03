@@ -22,11 +22,11 @@ SET /P QS_SD_DRIVE=%QS_DEFAULT_MESS%
 SET QS_SD_DRIVE=%QS_SD_DRIVE%*
 SET QS_SD_DRIVE=%QS_SD_DRIVE:"=%
 @REM IF "%QS_SD_DRIVE%" == "*" GOTO :INPUT_START
-@REM SET QS_SD_DRIVE=%QS_SD_DRIVE:~0,-1%
+@REM SET "QS_SD_DRIVE=%QS_SD_DRIVE:~0,-1%"
 IF "%QS_SD_DRIVE%" == "*" (
   SET QS_SD_DRIVE=%QS_CURRENT_DIR%
 ) ELSE (
-  SET QS_SD_DRIVE=%QS_SD_DRIVE:~0,-1%
+  SET "QS_SD_DRIVE=%QS_SD_DRIVE:~0,-1%"
 )
 IF "%QS_SD_DRIVE%" == "" GOTO :INPUT_START
 
@@ -56,7 +56,7 @@ IF NOT EXIST "%QS_SD_DRIVE%\Resources\%QS_FOLDER_NAM_INI:e.ini=X.ini%" (
 )
 :INPUT_CHECK1_BS_CHK
 IF "%QS_SD_DRIVE:~-1%" == "\" (
-  SET QS_SD_DRIVE=%QS_SD_DRIVE:~0,-1%
+  SET "QS_SD_DRIVE=%QS_SD_DRIVE:~0,-1%"
   GOTO :INPUT_CHECK1_BS_CHK
 )
 
@@ -135,12 +135,40 @@ rem IF %QS_13_MENU_MODE% == 0 (
   IF EXIST mgdel.bvs ECHO cleanup mgdel.bvs ...&&DEL mgdel.bvs
   IF EXIST sppnp.bvs ECHO cleanup sppnp.bvs ...&&DEL sppnp.bvs
   IF EXIST mfpmp.bvs ECHO cleanup mfpmp.bvs ...&&DEL mfpmp.bvs
+
+  IF EXIST rdbui.tax_orig DEL rdbui.tax_orig
+  IF EXIST urefs.tax_orig DEL urefs.tax_orig
+  IF EXIST scksp.tax_orig DEL scksp.tax_orig
+  IF EXIST vdsdc.tax_orig DEL vdsdc.tax_orig
+  IF EXIST pnpui.tax_orig DEL pnpui.tax_orig
+  IF EXIST vfnet.tax_orig DEL vfnet.tax_orig
+  IF EXIST mswb7.tax_orig DEL mswb7.tax_orig
+
+  IF EXIST fhcfg.nec_orig DEL fhcfg.nec_orig
+  IF EXIST adsnt.nec_orig DEL adsnt.nec_orig
+  IF EXIST setxa.nec_orig DEL setxa.nec_orig
+  IF EXIST umboa.nec_orig DEL umboa.nec_orig
+  IF EXIST wjere.nec_orig DEL wjere.nec_orig
+  IF EXIST htuiw.nec_orig DEL htuiw.nec_orig
+  IF EXIST msdtc.nec_orig DEL msdtc.nec_orig
+
+  IF EXIST nethn.bvs_orig DEL nethn.bvs_orig
+  IF EXIST xvb6c.bvs_orig DEL xvb6c.bvs_orig
+  IF EXIST wmiui.bvs_orig DEL wmiui.bvs_orig
+  IF EXIST qdvd6.bvs_orig DEL qdvd6.bvs_orig
+  IF EXIST mgdel.bvs_orig DEL mgdel.bvs_orig
+  IF EXIST sppnp.bvs_orig DEL sppnp.bvs_orig
+  IF EXIST mfpmp.bvs_orig DEL mfpmp.bvs_orig
 rem )
 
 IF %QS_DEVICE_MODE% == GB300V2 (
   IF EXIST kjbyr.tax ECHO cleanup kjbyr.tax ...&&DEL kjbyr.tax
   IF EXIST djoin.nec ECHO cleanup djoin.nec ...&&DEL djoin.nec
   IF EXIST ke89a.bvs ECHO cleanup ke89a.bvs ...&&DEL ke89a.bvs
+
+  IF EXIST kjbyr.tax_orig DEL kjbyr.tax_orig
+  IF EXIST djoin.nec_orig DEL djoin.nec_orig
+  IF EXIST ke89a.bvs_orig DEL ke89a.bvs_orig
 )
 
 rem IF %QS_13_MENU_MODE% == 1 (
