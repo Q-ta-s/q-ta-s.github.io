@@ -415,8 +415,8 @@ IF %1 EQU 4 (
   IF NOT EXIST pnpui.tax (
     IF EXIST m%QS_RES_NUM%.ta REN m%QS_RES_NUM%.ta pnpui.tax
   )
-  IF NOT EXIST adsnt.nec (
-    IF EXIST m%QS_RES_NUM%.ne REN m%QS_RES_NUM%.ne adsnt.nec
+  IF NOT EXIST wjere.nec (
+    IF EXIST m%QS_RES_NUM%.ne REN m%QS_RES_NUM%.ne wjere.nec
   )
   IF NOT EXIST mgdel.bvs (
     IF EXIST m%QS_RES_NUM%.bv REN m%QS_RES_NUM%.bv mgdel.bvs
@@ -448,8 +448,8 @@ IF %1 GEQ 7 (
   IF NOT EXIST pnpui.tax (
     IF EXIST m%QS_RES_NUM%.ta REN m%QS_RES_NUM%.ta pnpui.tax
   )
-  IF NOT EXIST adsnt.nec (
-    IF EXIST m%QS_RES_NUM%.ne REN m%QS_RES_NUM%.ne adsnt.nec
+  IF NOT EXIST wjere.nec (
+    IF EXIST m%QS_RES_NUM%.ne REN m%QS_RES_NUM%.ne wjere.nec
   )
   IF NOT EXIST mgdel.bvs (
     IF EXIST m%QS_RES_NUM%.bv REN m%QS_RES_NUM%.bv mgdel.bvs
@@ -673,13 +673,40 @@ EXIT /B
 @REM ###########################################################################
 :EMPTY_FOLDER_CHK
 
+SET QS_EMPTY=0
 IF NOT EXIST "%~1" (
   SET QS_EMPTY=1
   EXIT /B
 )
-DIR /B /A "%~1" | %QS_FIND_EXE% ".">NUL && (SET QS_EMPTY=0) || (SET QS_EMPTY=1)
-IF NOT "%2" == "" EXIT /B
-IF %QS_EMPTY% EQU 1 RD "%~1"
+REM DIR /B /A "%~1" | %QS_FIND_EXE% ".">NUL && (SET QS_EMPTY=0) || (SET QS_EMPTY=1)
+SET QS_EMPTY_FOLDER_HAS_OTHER=0
+SET QS_EMPTY_FOLDER_SAVE_HAS_FILE=0
+FOR /F "DELIMS=" %%I IN ('DIR /A /B "%~1" 2^>NUL') DO (
+  IF /I NOT "%%~nxI"=="save" (
+    SET QS_EMPTY_FOLDER_HAS_OTHER=1
+    GOTO :EMPTY_FOLDER_SAVE_CHECK
+  )
+)
+
+:EMPTY_FOLDER_SAVE_CHECK
+IF EXIST "%~1\save" (
+  FOR /F "DELIMS=" %%S IN ('DIR /A /B "%~1\save" 2^>NUL') DO (
+    SET QS_EMPTY_FOLDER_SAVE_HAS_FILE=1
+    GOTO :EMPTY_FOLDER_DECIDE
+  )
+)
+
+:EMPTY_FOLDER_DECIDE
+IF %QS_EMPTY_FOLDER_HAS_OTHER% == 0 (
+  IF %QS_EMPTY_FOLDER_SAVE_HAS_FILE% == 0 (
+    SET QS_EMPTY=1
+  )
+)
+IF NOT "%~2" == "" EXIT /B
+IF %QS_EMPTY% EQU 1 (
+  IF EXIST "%~1\save" RD "%~1\save"
+  RD "%~1"
+)
 
 EXIT /B
 
