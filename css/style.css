@@ -107,6 +107,9 @@
                 transform: scale(1.05);
             }
     }
+    .new-icon.g {
+           background: linear-gradient(135deg, #b6eb7a, #63c73a);
+    }
     .container {
       position: absolute;
       left: 50%;
