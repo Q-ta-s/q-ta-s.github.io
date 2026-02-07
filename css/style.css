@@ -109,6 +109,7 @@
     }
     .new-icon.g {
            background: linear-gradient(135deg, #b6eb7a, #63c73a);
+           font-size: 45%;
     }
     .container {
       position: absolute;
